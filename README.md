@@ -3,5 +3,5 @@
 
 
 ## .env initialization example:
-PORT=5000,
+PORT=5000\n
 MONGODB_URI=Your_MongoDB_URI
