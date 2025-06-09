@@ -16,6 +16,10 @@ const TaskModel = new Schema(
             type: String,
             default: "todo"
         },
+        priority: {
+            type: String,
+            default: "low",
+        },
     },
     { timestamps: true },
 )

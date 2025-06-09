@@ -1,5 +1,5 @@
 import express from "express";
-import { changeStatusDone, changeStatusProgress, changeStatusTodo, deleteTask, editTask, getAllTasks, newTask } from "../controllers/task.controller.js";
+import { changePriorityHigh, changePriorityMedium, changeStatusDone, changeStatusProgress, changeStatusTodo, deleteTask, editTask, getAllTasks, newTask } from "../controllers/task.controller.js";
 
 const router = express.Router()
 
@@ -13,5 +13,10 @@ router.delete('/delete/:_id', deleteTask)
 router.put('/todo/:_id', changeStatusTodo)
 router.put('/progress/:_id', changeStatusProgress)
 router.put('/done/:_id', changeStatusDone)
+
+// change task priority
+router.put('/low/:_id', changePriorityLow)
+router.put('/medium/:_id', changePriorityMedium)
+router.put('/high/:_id', changePriorityHigh)
 
 export default router

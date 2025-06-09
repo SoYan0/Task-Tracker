@@ -101,3 +101,45 @@ export const changeStatusDone = async (req, res) => {
         res.status(500).json({ message: "Internal server error" })
     }
 }
+
+export const changePriorityLow = async (req, res) => {
+    const { _id } = req.params
+    try {
+        await Task.findOneAndUpdate({ _id }, {
+            priority: "low",
+        })
+
+        res.status(200).json({ message: "Updated!" })
+    } catch (error) {
+        console.log("Error in changePriorityLow controller", error.message)
+        res.status(500).json({ message: "Internal server error" })
+    }
+}
+
+export const changePriorityMedium = async (req, res) => {
+    const { _id } = req.params
+    try {
+        await Task.findOneAndUpdate({ _id }, {
+            priority: "medium",
+        })
+
+        res.status(200).json({ message: "Updated!" })
+    } catch (error) {
+        console.log("Error in changePriorityMedium controller", error.message)
+        res.status(500).json({ message: "Internal server error" })
+    }
+}
+
+export const changePriorityHigh = async (req, res) => {
+    const { _id } = req.params
+    try {
+        await Task.findOneAndUpdate({ _id }, {
+            priority: "high",
+        })
+
+        res.status(200).json({ message: "Updated!" })
+    } catch (error) {
+        console.log("Error in changePriorityHigh controller", error.message)
+        res.status(500).json({ message: "Internal server error" })
+    }
+}
