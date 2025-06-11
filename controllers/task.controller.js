@@ -2,7 +2,10 @@ import Task from "../models/task.model.js"
 
 export const getAllTasks = async (req, res) => {
     try {
-        const data = await Task.find()
+        const userId = req.user.userId
+        
+        const data = await Task.find({ userId })
+        
         if (!data) return res.status(400).json({ message: "No tasks!" })
         res.status(200).json(data)
     } catch (error) {
@@ -18,6 +21,7 @@ export const newTask = async (req, res) => {
         if (!title) return res.status(400).json({ message: "Title is required!" })
 
         const task = await Task.insertOne({
+            userId: req.user.userId,
             title,
             description,
         })

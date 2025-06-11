@@ -4,6 +4,10 @@ const Schema = mongoose.Schema
 
 const TaskModel = new Schema(
     {
+        userId: {
+            type: mongoose.Schema.Types.ObjectId,
+            required: true,
+        },
         title: {
             type: String,
             require: true,
